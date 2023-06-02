@@ -4,7 +4,6 @@ import React from "react";
 import Navbar from "./Navbar";
 import Leaderboard from "./Leaderboard";
 import HallOfFame from "./HallOfFame";
-import Playerlist from "./Playerlist.jsx";
 import Footer from "./Footer";
 
 export default function App() {
@@ -14,7 +13,6 @@ export default function App() {
             <Navbar />
             <Leaderboard />
             <HallOfFame />
-            {/* <Playerlist /> */}
             <Footer />
         </div>
     );
