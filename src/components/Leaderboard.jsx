@@ -7,12 +7,14 @@ import { BsArrowRightCircle, BsArrowLeftCircle } from 'react-icons/bs'
 
 export default function Leaderboard() {
     const [data, setData] = useState({});
+    const [updateDate, setUpdateDate] = useState("");
     const [dataArray, setDataArray] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/scores/2023/05')
+        axios.get('http://localhost:3001/api/scores/2023/06')
             .then(response => {
-                setData(response.data);
+                setData(response.data.scores);
+                setUpdateDate(response.data.lastUpdate);
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -28,7 +30,6 @@ export default function Leaderboard() {
     const firstPlace = dataArray.length > 0 ? dataArray[0].participant : '';
     const firstPlaceScore = dataArray.length > 0 ? dataArray[0].score : '';
 
-
     const [currentPage, setCurrentPage] = useState(1);
     const rowsPerPage = 10;
 
@@ -36,13 +37,19 @@ export default function Leaderboard() {
     const indexOfFirstRow = indexOfLastRow - rowsPerPage;
     const currentRows = dataArray.slice(indexOfFirstRow, indexOfLastRow);
 
-    const renderRows = currentRows.map((data, index) => (
-        <tr key={index}>
-            <td>{indexOfFirstRow + index + 1}</td>
-            <td className="text-left pl-12">{data.participant}</td>
-            <td>{data.score}</td>
-        </tr>
-    ));
+    const renderRows = () => {
+        if (dataArray.length === 0) {
+            return null; // or you can render a loading indicator
+        }
+
+        return currentRows.map((data, index) => (
+            <tr key={index}>
+                <td>{indexOfFirstRow + index + 1}</td>
+                <td className="text-left pl-12">{data.participant}</td>
+                <td>{data.score}</td>
+            </tr>
+        ));
+    };
 
     return (
         <div
@@ -56,9 +63,8 @@ export default function Leaderboard() {
                         <h1 className="font-bold my-2 text-5xl">
                             🏋️‍♂️ {dates} 2023 Standings
                         </h1>
-                        <h3>Last updated: 2023-04<Typed
-                            // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ UPDATE  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                            strings={["-29"]}
+                        <h3>Last updated: 2023-06-<Typed
+                            strings={[`${updateDate}`]}
                             typeSpeed={40}
                             backSpeed={300}
                             loop
@@ -75,7 +81,7 @@ export default function Leaderboard() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {renderRows}
+                                    {renderRows()}
                                 </tbody>
                             </table>
                         </div>

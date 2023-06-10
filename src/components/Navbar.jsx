@@ -11,7 +11,7 @@ export default function Navbar() {
     const handleClick = () => setNav(!nav);
 
     // Tabs
-    const tabs = ["Leaderboard", "Hall of Fame", "Playerlist"];
+    const tabs = ["Leaderboard", "Hall of Fame"];
 
     return (
         <div className="fixed bg-black w-full h-[70px] flex justify-between items-center text-white z-10">
@@ -27,9 +27,6 @@ export default function Navbar() {
                     </li>
                     <li className="my-1 mx-2 font-semibold hover:border-b-2 border-green-400">
                         <a href="#halloffame">Hall of Fame</a>
-                    </li>
-                    <li className="my-1 mx-2 font-semibold hover:border-b-2 border-green-400">
-                        <a href="#playerlist">Playerlist</a>
                     </li>
                 </ul>
             </div>
@@ -60,9 +57,6 @@ export default function Navbar() {
                     </li>
                     <li className="mx-4 p-2 border-b-2 border-gray-600">
                         <a href="#halloffame">Hall of Fame</a>
-                    </li>
-                    <li className="mx-4 p-2 border-b-2 border-gray-600">
-                        <a href="#playerlist">Playerlist</a>
                     </li>
                 </ul>
             </div>
