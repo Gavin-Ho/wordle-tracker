@@ -11,7 +11,7 @@ export default function Leaderboard() {
     const [dataArray, setDataArray] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/scores/2023/06')
+        axios.get('https://wordle-api.herokuapp.com/api/scores/currentMonth')
             .then(response => {
                 setData(response.data.scores);
                 setUpdateDate(response.data.lastUpdate);
