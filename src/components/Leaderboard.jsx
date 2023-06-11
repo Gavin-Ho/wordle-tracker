@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Typed from "react-typed";
 import dates from "./dates";
 import { MdKeyboardArrowDown } from 'react-icons/md'
 import axios from 'axios';
@@ -63,12 +62,12 @@ export default function Leaderboard() {
                         <h1 className="font-bold my-2 text-5xl">
                             🏋️‍♂️ {dates} 2023 Standings
                         </h1>
-                        <h3>Last updated: 2023-06-<Typed
+                        {/* <h3>Last updated: 2023-06-<Typed
                             strings={[`${updateDate}`]}
                             typeSpeed={40}
                             backSpeed={300}
                             loop
-                        /></h3>
+                        /></h3> */}
                     </div>
                     <div>
                         <div className="flex flex-col text-2xl mx-24">
@@ -116,13 +115,13 @@ export default function Leaderboard() {
                         Rank #1
                     </p>
                     <div className="text-xl flex">
-                        <Typed
+                        {/* <Typed
                             className="text-gray-300 text-6xl font-bold"
                             strings={[firstPlace]}
                             typeSpeed={40}
                             backSpeed={100}
                             loop
-                        />
+                        /> */}
                     </div>
                     <div className="text-xl my-6">
                         1st Place Score: {firstPlaceScore}
