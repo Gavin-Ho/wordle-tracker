@@ -2,32 +2,42 @@ import React, { useEffect, useState } from "react";
 import dates from "./dates";
 import { MdKeyboardArrowDown } from 'react-icons/md'
 import axios from 'axios';
-import { BsArrowRightCircle, BsArrowLeftCircle } from 'react-icons/bs'
+import { BsArrowRightCircle, BsArrowLeftCircle } from 'react-icons/bs';
+import { TypeAnimation } from 'react-type-animation';
 
 export default function Leaderboard() {
     const [data, setData] = useState({});
     const [updateDate, setUpdateDate] = useState("");
     const [dataArray, setDataArray] = useState([]);
 
+    const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
         axios.get('https://wordle-api.herokuapp.com/api/scores/currentMonth')
             .then(response => {
                 setData(response.data.scores);
                 setUpdateDate(response.data.lastUpdate);
+                setIsLoading(false); // Set loading state to false
             })
             .catch(error => {
                 console.error('Error:', error);
+                setIsLoading(false); // Set loading state to false even on error
             });
     }, []);
+
+    const [firstPlace, setFirstPlace] = useState('');
+    const [firstPlaceScore, setFirstPlaceScore] = useState('');
 
     useEffect(() => {
         const updatedArray = Object.entries(data).map(([participant, score]) => ({ participant, score }));
         updatedArray.sort((a, b) => a.score - b.score);
         setDataArray(updatedArray);
-    }, [data]);
 
-    const firstPlace = dataArray.length > 0 ? dataArray[0].participant : '';
-    const firstPlaceScore = dataArray.length > 0 ? dataArray[0].score : '';
+        if (updatedArray.length > 0) {
+            setFirstPlace(updatedArray[0].participant);
+            setFirstPlaceScore(updatedArray[0].score);
+        }
+    }, [data]);
 
     const [currentPage, setCurrentPage] = useState(1);
     const rowsPerPage = 10;
@@ -62,12 +72,31 @@ export default function Leaderboard() {
                         <h1 className="font-bold my-2 text-5xl">
                             🏋️‍♂️ {dates} 2023 Standings
                         </h1>
-                        {/* <h3>Last updated: 2023-06-<Typed
-                            strings={[`${updateDate}`]}
-                            typeSpeed={40}
-                            backSpeed={300}
-                            loop
-                        /></h3> */}
+                        {isLoading ? (
+                            <h3>...</h3> // Render a loading indicator while the API call is in progress
+                        ) : (
+                            <>
+                                <h3>
+                                    Last updated: 2023-06-
+                                    <TypeAnimation
+                                        sequence={[
+                                            updateDate.toString(),
+                                            1000,
+                                            '',
+                                            1000,
+                                            updateDate.toString(),
+                                            1000
+                                        ]}
+                                        wrapper="span"
+                                        speed={200}
+                                        style={{
+                                            fontSize: '1rem',
+                                        }}
+                                        repeat={Infinity}
+                                    />
+                                </h3>
+                            </>
+                        )}
                     </div>
                     <div>
                         <div className="flex flex-col text-2xl mx-24">
@@ -110,18 +139,31 @@ export default function Leaderboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-col w-[500px] justify-center p-10">
+                <div className="flex flex-col w-[600px] justify-center p-10">
                     <p className="text-green-400 font-bold my-2 text-4xl uppercase">
                         Rank #1
                     </p>
-                    <div className="text-xl flex">
-                        {/* <Typed
-                            className="text-gray-300 text-6xl font-bold"
-                            strings={[firstPlace]}
-                            typeSpeed={40}
-                            backSpeed={100}
-                            loop
-                        /> */}
+                    <div className="text-xl flex py-4">
+                        {firstPlace && ( // Add conditional rendering check
+                            <TypeAnimation
+                                sequence={[
+                                    firstPlace.toString(),
+                                    1000,
+                                    '',
+                                    1000,
+                                    firstPlace.toString(),
+                                    1000
+                                ]}
+                                wrapper="span"
+                                speed={200}
+                                style={{
+                                    color: '#D1D5DB',
+                                    fontSize: '4rem',
+                                    fontWeight: 'bold',
+                                }}
+                                repeat={Infinity}
+                            />
+                        )}
                     </div>
                     <div className="text-xl my-6">
                         1st Place Score: {firstPlaceScore}
