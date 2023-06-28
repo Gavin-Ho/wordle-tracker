@@ -23,18 +23,19 @@ export default function HallOfFame() {
     }, []);
 
     return (
-        <div id="halloffame" className=" w-full h-[500px] bg-[#f5f5f5] text-black flex justify-center items-center">
-            <div className="border-2 border-green-600 rounded-lg">
-                <div data-aos="fade-up">
+        <div id="halloffame" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/flowers.png')" }} className=" w-full h-[900px] bg-[#e6f1e8] text-black flex justify-center items-center">
+            <div data-aos="fade-up">
+                <div className="w-[600px] h-[450px] border-2 bg-[#e9f0e7] border-green-600 rounded-lg">
                     <h1 className="text-5xl text-black font-semibold text-center m-12">Hall Of Fame 🏆</h1>
-                    <div className="my-12">
+                    <div className="my-16 flex justify-center">
                         <Splide options={{
                             type: 'loop',
                             perPage: 1,
-                            arrows: false,
+                            arrows: true,
                             pagination: false,
                             width: 500,
                             autoplay: true,
+                            interval: 2000,
                             gap: '1rem',
                         }}>
                             {isLoading ? null : (
@@ -48,6 +49,7 @@ export default function HallOfFame() {
                             )}
                         </Splide>
                     </div>
+
                 </div>
             </div>
         </div>

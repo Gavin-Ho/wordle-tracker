@@ -73,7 +73,7 @@ export default function Leaderboard() {
                             🏋️‍♂️ {dates} 2023 Standings
                         </h1>
                         {isLoading ? (
-                            <h3>...</h3> // Render a loading indicator while the API call is in progress
+                            <h3>Loading scores...</h3> // Render a loading indicator while the API call is in progress
                         ) : (
                             <>
                                 <h3>
