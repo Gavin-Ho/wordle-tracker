@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-
-import { BsFillMoonStarsFill } from "react-icons/bs";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 
@@ -9,9 +7,6 @@ import Title from "./Title";
 export default function Navbar() {
     const [nav, setNav] = useState(false);
     const handleClick = () => setNav(!nav);
-
-    // Tabs
-    const tabs = ["Leaderboard", "Hall of Fame"];
 
     return (
         <div className="fixed bg-black w-full h-[70px] flex justify-between items-center text-white z-10">
@@ -30,7 +25,6 @@ export default function Navbar() {
                     </li>
                 </ul>
             </div>
-
 
             {/* Hamburger */}
             <div
@@ -59,17 +53,6 @@ export default function Navbar() {
                         <a href="#halloffame">Hall of Fame</a>
                     </li>
                 </ul>
-            </div>
-
-            {/* Dark Mode Icon */}
-            <div
-                className={
-                    "bg-green-400 fixed flex flex-col top-[25%] right-[0%] w-[75px] h-[55px] justify-center rounded-l-3xl mr-[-20px] duration-300 hover:mr-[0px]"
-                }
-            >
-                <button className="mx-4">
-                    <BsFillMoonStarsFill size={25} />
-                </button>
             </div>
         </div>
     );

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Profile from "./Profile";
 
 export default function HallOfFame() {
@@ -20,6 +21,10 @@ export default function HallOfFame() {
                 console.error('Error:', error);
                 setIsLoading(false); // Set loading state to false even on error
             });
+    }, []);
+
+    useEffect(() => {
+        AOS.init();
     }, []);
 
     return (
