@@ -16,7 +16,7 @@ export default function Navbar() {
 
             {/* Menu */}
             <div className="mx-6">
-                <ul className="hidden md:flex">
+                <ul className="hidden lg:flex">
                     <li className="my-1 mx-2 font-semibold hover:border-b-2 border-green-400">
                         <a href="#leaderboard">Leaderboard</a>
                     </li>
@@ -29,7 +29,7 @@ export default function Navbar() {
             {/* Hamburger */}
             <div
                 onClick={handleClick}
-                className="md:hidden z-10 flex items-center mr-6"
+                className="lg:hidden z-10 flex items-center mr-6"
             >
                 {!nav ? <FaBars size={20} /> : <FaTimes size={20} />}
             </div>
@@ -38,18 +38,18 @@ export default function Navbar() {
             <div
                 className={
                     !nav
-                        ? "fixed left-[-100%] "
-                        : "fixed top-0 left-0 w-[55%] h-full uppercase border-r border-r-gray-600 bg-black ease-in-out duration-500"
+                        ? "fixed top-[-100%] w-[100%] flex flex-col justify-center items-center h-full ease-in-out duration-500 bg-black"
+                        : "fixed top-0 w-[100%] flex flex-col justify-center items-center h-full font-semibold bg-black ease-in-out duration-500"
                 }
             >
-                <div className="flex flex-col justify-center pl-4 h-[70px] bg-black">
+                <div className="flex flex-col justify-center h-[70px] bg-black">
                     <Title />
                 </div>
-                <ul>
-                    <li className="mx-4 p-2 border-b-2 border-gray-600">
+                <ul className="text-3xl">
+                    <li className="mx-4 my-12">
                         <a href="#leaderboard">Leaderboard</a>
                     </li>
-                    <li className="mx-4 p-2 border-b-2 border-gray-600">
+                    <li className="mx-4 my-12">
                         <a href="#halloffame">Hall of Fame</a>
                     </li>
                 </ul>
