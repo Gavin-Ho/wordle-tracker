@@ -28,9 +28,9 @@ export default function HallOfFame() {
     }, []);
 
     return (
-        <div id="halloffame" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/flowers.png')" }} className=" w-full h-[900px] bg-[#e6f1e8] text-black flex justify-center items-center">
+        <div id="halloffame" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/flowers.png')" }} className=" w-full lg:h-screen bg-[#e6f1e8] text-black flex justify-center items-center">
             <div data-aos="fade-up">
-                <div className="md:w-[600px] w-[400px] md:h-[450px] h-[350px] border-2 bg-[#e9f0e7] border-green-600 rounded-lg ">
+                <div className="md:w-[600px] w-[400px] md:h-[450px] h-[350px] border-2 bg-[#e9f0e7] border-green-600 rounded-lg my-12">
                     <h1 className="md:text-5xl text-4xl text-black font-semibold text-center md:my-12 my-8">Hall Of Fame 🏆</h1>
                     <div className="md:my-16 my-8 flex justify-center">
                         <Splide options={{

@@ -63,13 +63,15 @@ export default function Leaderboard() {
     return (
         <div
             id="leaderboard"
-            className="w-full h-screen"
+            className=""
         >
-            <div className="h-screen justify-center items-center gap-4 flex flex-col lg:flex-row">
+            <div className="lg:h-screen justify-center items-center gap-4 flex flex-col-reverse lg:flex-row">
+                <div>
 
-                <div className="w-[700px] flex flex-col justify-center text-center py-10 border-1 border-green-400 rounded-lg">
+                </div>
+                <div className="w-[450px] lg:w-[700px] flex flex-col justify-center text-center mb-36 lg:my-10 border-1 border-green-400 rounded-lg">
                     <div className="mb-10">
-                        <h1 className="font-bold my-2 text-5xl">
+                        <h1 className="font-bold my-4 text-3xl xl:text-5xl">
                             🏋️‍♂️ {dates} 2023 Standings
                         </h1>
                         {isLoading ? (
@@ -77,7 +79,7 @@ export default function Leaderboard() {
                         ) : (
                             <>
                                 <h3>
-                                    Last updated: 2023-06-
+                                    Last updated: 2023-07-
                                     <TypeAnimation
                                         sequence={[
                                             updateDate.toString(),
@@ -99,7 +101,7 @@ export default function Leaderboard() {
                         )}
                     </div>
                     <div>
-                        <div className="flex flex-col text-2xl mx-24">
+                        <div className="flex flex-col text-xl xl:text-2xl mx-12 lg:mx-24">
                             <table>
                                 <thead>
                                     <tr>
@@ -116,7 +118,7 @@ export default function Leaderboard() {
 
                         <div className="">
                             {dataArray.length > rowsPerPage && (
-                                <div className="flex justify-between mt-12 mx-72">
+                                <div className="flex justify-between mx-36 xl:mx-72 mt-12">
                                     <div className="">
                                         <button
                                             onClick={() => setCurrentPage(currentPage - 1)}
@@ -139,12 +141,12 @@ export default function Leaderboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-col w-[600px] justify-center p-10">
-                    <p className="text-green-400 font-bold my-2 text-4xl uppercase">
+                <div className="flex flex-col w-[400px] lg:w-[600px] text-left justify-center my-96 lg:my-0 mx-10">
+                    <p className="text-green-400 font-bold my-2 text-3xl lg:text-4xl uppercase">
                         Rank #1
                     </p>
-                    <div className="text-xl flex py-4">
-                        {firstPlace && ( // Add conditional rendering check
+                    <div className="text-5xl lg:text-[4rem] font-bold flex py-0 lg:py-4">
+                        {firstPlace && (
                             <TypeAnimation
                                 sequence={[
                                     firstPlace.toString(),
@@ -156,11 +158,6 @@ export default function Leaderboard() {
                                 ]}
                                 wrapper="span"
                                 speed={200}
-                                style={{
-                                    color: '#D1D5DB',
-                                    fontSize: '4rem',
-                                    fontWeight: 'bold',
-                                }}
                                 repeat={Infinity}
                             />
                         )}
