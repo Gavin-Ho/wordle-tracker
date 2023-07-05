@@ -54,7 +54,7 @@ export default function Leaderboard() {
         return currentRows.map((data, index) => (
             <tr key={index}>
                 <td>{indexOfFirstRow + index + 1}</td>
-                <td className="text-left pl-12">{data.participant}</td>
+                <td className="text-center">{data.participant}</td>
                 <td>{data.score}</td>
             </tr>
         ));
@@ -65,12 +65,12 @@ export default function Leaderboard() {
             id="leaderboard"
             className=""
         >
-            <div className="lg:h-screen justify-center items-center gap-4 flex flex-col-reverse lg:flex-row">
+            <div className="h-screen justify-center items-center gap-4 flex flex-col-reverse lg:flex-row">
                 <div>
 
                 </div>
-                <div className="w-[450px] lg:w-[700px] flex flex-col justify-center text-center mb-36 lg:my-10 border-1 border-green-400 rounded-lg">
-                    <div className="mb-10">
+                <div className="w-[400px] md:w-[600px] lg:w-[700px] flex flex-col justify-center text-center lg:my-10 border-1 border-green-400 rounded-lg">
+                    <div className="mb-4">
                         <h1 className="font-bold my-4 text-3xl xl:text-5xl">
                             🏋️‍♂️ {dates} 2023 Standings
                         </h1>
@@ -118,7 +118,7 @@ export default function Leaderboard() {
 
                         <div className="">
                             {dataArray.length > rowsPerPage && (
-                                <div className="flex justify-between mx-36 xl:mx-72 mt-12">
+                                <div className="flex justify-between mx-36 xl:mx-64 mt-6">
                                     <div className="">
                                         <button
                                             onClick={() => setCurrentPage(currentPage - 1)}
@@ -141,8 +141,8 @@ export default function Leaderboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-col w-[400px] lg:w-[600px] text-left justify-center my-96 lg:my-0 mx-10">
-                    <p className="text-green-400 font-bold my-2 text-3xl lg:text-4xl uppercase">
+                <div className="flex flex-col w-full lg:w-[600px]  lg:my-0 lg:mx-10 px-4">
+                    <p className="text-green-400 font-bold my-2 text-2xl lg:text-4xl uppercase">
                         Rank #1
                     </p>
                     <div className="text-5xl lg:text-[4rem] font-bold flex py-0 lg:py-4">
@@ -170,7 +170,7 @@ export default function Leaderboard() {
             </div>
 
             {/* Down Arrow */}
-            <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-bounce">
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-bounce">
                 <MdKeyboardArrowDown size={35} />
             </div>
 
