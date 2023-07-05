@@ -65,13 +65,12 @@ export default function Leaderboard() {
             id="leaderboard"
             className=""
         >
-            <div className="h-screen justify-center items-center gap-4 flex flex-col-reverse lg:flex-row">
+            <div className="h-screen justify-center items-center flex flex-col-reverse lg:flex-row">
                 <div>
-
                 </div>
                 <div className="w-[400px] md:w-[600px] lg:w-[700px] flex flex-col justify-center text-center lg:my-10 border-1 border-green-400 rounded-lg">
                     <div className="mb-4">
-                        <h1 className="font-bold my-4 text-3xl xl:text-5xl">
+                        <h1 className="font-bold my-2 text-3xl xl:text-5xl">
                             🏋️‍♂️ {dates} 2023 Standings
                         </h1>
                         {isLoading ? (
@@ -101,7 +100,7 @@ export default function Leaderboard() {
                         )}
                     </div>
                     <div>
-                        <div className="flex flex-col text-xl xl:text-2xl mx-12 lg:mx-24">
+                        <div className="flex flex-col text-md md:text-lg xl:text-2xl mx-12 lg:mx-24">
                             <table>
                                 <thead>
                                     <tr>
@@ -141,8 +140,8 @@ export default function Leaderboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-col w-full lg:w-[600px]  lg:my-0 lg:mx-10 px-4">
-                    <p className="text-green-400 font-bold my-2 text-2xl lg:text-4xl uppercase">
+                <div className="flex flex-col w-full lg:w-[600px] lg:mx-10 px-4 my-4">
+                    <p className="text-green-300 font-bold my-2 text-2xl lg:text-4xl uppercase">
                         Rank #1
                     </p>
                     <div className="text-5xl lg:text-[4rem] font-bold flex py-0 lg:py-4">
@@ -162,7 +161,7 @@ export default function Leaderboard() {
                             />
                         )}
                     </div>
-                    <div className="text-xl my-6">
+                    <div className="text-lg  md:text-xl my-2">
                         1st Place Score: {firstPlaceScore}
                     </div>
                 </div>
@@ -170,7 +169,7 @@ export default function Leaderboard() {
             </div>
 
             {/* Down Arrow */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-bounce">
+            <div className="absolute bottom-0 left-1/2 animate-bounce">
                 <MdKeyboardArrowDown size={35} />
             </div>
 
