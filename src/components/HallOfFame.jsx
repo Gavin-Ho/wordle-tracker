@@ -40,10 +40,11 @@ export default function HallOfFame() {
                             pagination: false,
                             width: 400,
                             autoplay: true,
-                            interval: 2000,
+                            interval: 1500,
                             gap: '1rem',
+                            start: 0,
                         }}>
-                            {isLoading ? null : (
+                            {isLoading ? <div className="mb-24 text-xl">Loading slides...</div> : (
                                 data.map((value) => (
                                     Object.entries(value.Winners).map(([name, score]) => (
                                         <SplideSlide key={name}>
@@ -54,7 +55,6 @@ export default function HallOfFame() {
                             )}
                         </Splide>
                     </div>
-
                 </div>
             </div>
         </div>

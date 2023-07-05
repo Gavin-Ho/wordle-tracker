@@ -161,7 +161,7 @@ export default function Leaderboard() {
                             />
                         )}
                     </div>
-                    <div className="text-lg  md:text-xl my-2">
+                    <div className="text-lg md:text-xl mt-3">
                         1st Place Score: {firstPlaceScore}
                     </div>
                 </div>
@@ -169,7 +169,7 @@ export default function Leaderboard() {
             </div>
 
             {/* Down Arrow */}
-            <div className="absolute bottom-0 left-1/2 animate-bounce">
+            <div className="lg:block hidden absolute bottom-7 left-1/2 animate-bounce">
                 <MdKeyboardArrowDown size={35} />
             </div>
 
