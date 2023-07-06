@@ -9,7 +9,7 @@ export default function Navbar() {
     const handleClick = () => setNav(!nav);
 
     return (
-        <div className="fixed bg-black w-full h-[70px] flex justify-between items-center text-white z-10">
+        <div className="fixed bg-black w-full h-[10%] flex justify-between items-center text-white z-10">
             <div className="flex my-2 mx-4">
                 <Title />
             </div>

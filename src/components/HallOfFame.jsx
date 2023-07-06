@@ -30,7 +30,7 @@ export default function HallOfFame() {
     return (
         <div id="halloffame" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/flowers.png')" }} className="w-full h-screen bg-[#e6f1e8] text-black flex justify-center items-center">
             <div data-aos="fade-up">
-                <div className="w-full h-full border-2 bg-[#e9f0e7] border-green-600 rounded-lg my-12">
+                <div className="w-[100%] h-full border-2 bg-[#e9f0e7] border-green-600 rounded-lg my-12">
                     <h1 className="text-4xl text-black font-semibold text-center md:my-12 my-8">Hall Of Fame 🏆</h1>
                     <div className="my-8 flex justify-center">
                         <Splide options={{
@@ -38,7 +38,7 @@ export default function HallOfFame() {
                             perPage: 1,
                             arrows: true,
                             pagination: false,
-                            width: 400,
+                            width: 300,
                             autoplay: true,
                             interval: 1500,
                             gap: '1rem',

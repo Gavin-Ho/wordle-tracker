@@ -63,14 +63,14 @@ export default function Leaderboard() {
     return (
         <div
             id="leaderboard"
-            className=""
+            className="h-full lg:h-screen"
         >
-            <div className="h-screen justify-center items-center flex flex-col-reverse lg:flex-row">
+            <div className="h-full justify-end lg:justify-center items-center flex flex-col-reverse lg:flex-row">
                 <div>
                 </div>
-                <div className="w-[400px] md:w-[600px] lg:w-[700px] flex flex-col justify-center text-center lg:my-10 border-1 border-green-400 rounded-lg">
+                <div className="w-[90%] md:w-[70%] lg:w-[35%] flex flex-col justify-center text-center mb-10 lg:my-10 border-1 border-green-400 rounded-lg">
                     <div className="mb-4">
-                        <h1 className="font-bold my-2 text-3xl xl:text-5xl">
+                        <h1 className="font-bold my-2 text-3xl xl:text-4xl">
                             🏋️‍♂️ {dates} 2023 Standings
                         </h1>
                         {isLoading ? (
@@ -100,7 +100,7 @@ export default function Leaderboard() {
                         )}
                     </div>
                     <div>
-                        <div className="flex flex-col text-md md:text-lg xl:text-2xl mx-12 lg:mx-24">
+                        <div className="flex flex-col text-md md:text-lg lg:text-xl xl:text-2xl mx-12">
                             <table>
                                 <thead>
                                     <tr>
@@ -117,8 +117,8 @@ export default function Leaderboard() {
 
                         <div className="">
                             {dataArray.length > rowsPerPage && (
-                                <div className="flex justify-between mx-36 xl:mx-64 mt-6">
-                                    <div className="">
+                                <div className="flex justify-center mt-6">
+                                    <div className="pr-8">
                                         <button
                                             onClick={() => setCurrentPage(currentPage - 1)}
                                             disabled={currentPage === 1}
@@ -126,7 +126,7 @@ export default function Leaderboard() {
                                             <BsArrowLeftCircle size={25} />
                                         </button>
                                     </div>
-                                    <div>
+                                    <div className="pl-8">
                                         <button
                                             onClick={() => setCurrentPage(currentPage + 1)}
                                             disabled={indexOfLastRow >= dataArray.length}
@@ -140,11 +140,11 @@ export default function Leaderboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-col w-full lg:w-[600px] lg:mx-10 px-4 my-4">
+                <div className="flex flex-col justify-center items-center w-full lg:w-[600px] lg:mx-10 px-4 lg:mt-[0%] mt-[20%] mb-4">
                     <p className="text-green-300 font-bold my-2 text-2xl lg:text-4xl uppercase">
                         Rank #1
                     </p>
-                    <div className="text-5xl lg:text-[4rem] font-bold flex py-0 lg:py-4">
+                    <div className="text-[2rem] lg:text-[4rem] font-bold flex py-0 lg:py-4">
                         {firstPlace && (
                             <TypeAnimation
                                 sequence={[
