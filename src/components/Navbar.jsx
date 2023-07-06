@@ -16,7 +16,7 @@ export default function Navbar() {
 
             {/* Menu */}
             <div className="mx-6">
-                <ul className="hidden lg:flex">
+                <ul className="hidden lg:flex text-2xl">
                     <li className="my-1 mx-2 font-semibold hover:border-b-2 border-green-400">
                         <a href="#leaderboard">Leaderboard</a>
                     </li>
