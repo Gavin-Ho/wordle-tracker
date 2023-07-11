@@ -3,7 +3,7 @@ import React from 'react';
 function Profile(props) {
     return (
         <div className="flex justify-center z-0">
-            <div className="border-3 border-green-600 rounded-2xl w-full mx-16 my-8 p-8 bg-[#f3f8f4] shadow-lg">
+            <div className="border-3 border-green-600 rounded-2xl w-full mx-16 my-8 p-8 hover:bg-green-100 bg-[#f3f8f4] shadow-lg">
                 <div className="flex flex-col items-center">
                     {/* <img
             src="cartoon_image_url"
