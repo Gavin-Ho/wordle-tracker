@@ -47,10 +47,10 @@ export default function Navbar() {
                 </div>
                 <ul className="text-3xl">
                     <li className="mx-4 my-12">
-                        <a href="#leaderboard">Leaderboard</a>
+                        <a onClick={handleClick} href="#leaderboard">Leaderboard</a>
                     </li>
                     <li className="mx-4 my-12">
-                        <a href="#halloffame">Hall of Fame</a>
+                        <a onClick={handleClick} href="#halloffame">Hall of Fame</a>
                     </li>
                 </ul>
             </div>
