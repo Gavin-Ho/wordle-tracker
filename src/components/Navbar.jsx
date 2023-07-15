@@ -9,14 +9,14 @@ export default function Navbar() {
     const handleClick = () => setNav(!nav);
 
     return (
-        <div className="fixed bg-black w-full h-[10%] flex justify-between items-center text-white z-10">
-            <div className="flex my-2 mx-4">
+        <div className="fixed bg-black w-full h-[8%] flex justify-between items-center text-white z-10">
+            <div className="flex my-2 mx-4 text-lg md:text-2xl ">
                 <Title />
             </div>
 
             {/* Menu */}
             <div className="mx-6">
-                <ul className="hidden lg:flex text-2xl">
+                <ul className="hidden lg:flex text-xl">
                     <li className="my-1 mx-2 font-semibold hover:border-b-2 border-green-400">
                         <a href="#leaderboard">Leaderboard</a>
                     </li>
@@ -42,10 +42,10 @@ export default function Navbar() {
                         : "fixed top-0 w-[100%] flex flex-col justify-center items-center h-full font-semibold bg-black ease-in-out duration-500"
                 }
             >
-                <div className="flex flex-col justify-center h-[70px] bg-black">
+                <div className="flex flex-col justify-center h-[70px] bg-black text-3xl">
                     <Title />
                 </div>
-                <ul className="text-3xl">
+                <ul className="text-2xl">
                     <li className="mx-4 my-12">
                         <a onClick={handleClick} href="#leaderboard">Leaderboard</a>
                     </li>
