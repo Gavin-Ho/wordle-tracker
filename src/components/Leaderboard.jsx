@@ -10,8 +10,12 @@ export default function Leaderboard() {
     const [updateDate, setUpdateDate] = useState("");
     const [dataArray, setDataArray] = useState([]);
 
+    const [firstPlace, setFirstPlace] = useState('');
+    const [firstPlaceScore, setFirstPlaceScore] = useState('');
+
     const [isLoading, setIsLoading] = useState(true);
 
+    // Pull currentMonth data from Wordle-API
     useEffect(() => {
         axios.get('https://wordle-api.herokuapp.com/api/scores/currentMonth')
             .then(response => {
@@ -25,20 +29,38 @@ export default function Leaderboard() {
             });
     }, []);
 
-    const [firstPlace, setFirstPlace] = useState('');
-    const [firstPlaceScore, setFirstPlaceScore] = useState('');
 
+    // Create an array of all participants, sort them based on scores, and assign
     useEffect(() => {
         const updatedArray = Object.entries(data).map(([participant, score]) => ({ participant, score }));
+
+        // Sort participants by score in ascending order (lowest score first)
         updatedArray.sort((a, b) => a.score - b.score);
+
+        let currentRank = 1;
+        let prevScore = null;
+
+        for (let i = 0; i < updatedArray.length; i++) {
+            if (prevScore === null || updatedArray[i].score > prevScore) {
+                currentRank = i + 1;
+                prevScore = updatedArray[i].score;
+            }
+            updatedArray[i].rank = currentRank;
+        }
+
         setDataArray(updatedArray);
 
         if (updatedArray.length > 0) {
-            setFirstPlace(updatedArray[0].participant);
-            setFirstPlaceScore(updatedArray[0].score);
+            const firstPlaceParticipants = updatedArray.filter(entry => entry.rank === 1);
+            const firstPlaceNames = firstPlaceParticipants.map(entry => entry.participant);
+            const firstPlaceNamesFormatted = firstPlaceNames.join(', ');
+            setFirstPlace(firstPlaceNamesFormatted);
+            setFirstPlaceScore(firstPlaceParticipants[0].score);
         }
     }, [data]);
 
+
+    // Render the leaderboard rows
     const [currentPage, setCurrentPage] = useState(1);
     const rowsPerPage = 10;
 
@@ -53,7 +75,7 @@ export default function Leaderboard() {
 
         return currentRows.map((data, index) => (
             <tr key={index}>
-                <td>{indexOfFirstRow + index + 1}</td>
+                <td>{data.rank}</td>
                 <td className="text-center">{data.participant}</td>
                 <td>{data.score}</td>
             </tr>
@@ -71,14 +93,14 @@ export default function Leaderboard() {
                 <div className="w-[90%] md:w-[70%] lg:w-[35%] flex flex-col justify-center text-center mb-10 lg:my-10 border-1 border-green-400 rounded-lg">
                     <div className="mb-4">
                         <h1 className="font-bold my-2 text-3xl xl:text-4xl">
-                            🏋️‍♂️ {dates} 2023 Standings
+                            🏋️‍♂️ {dates} 2023
                         </h1>
                         {isLoading ? (
                             <h3>Loading scores...</h3> // Render a loading indicator while the API call is in progress
                         ) : (
                             <>
                                 <h3>
-                                    Last updated: 2023-07-
+                                    Updated: 2023-07-
                                     <TypeAnimation
                                         sequence={[
                                             updateDate.toString(),
