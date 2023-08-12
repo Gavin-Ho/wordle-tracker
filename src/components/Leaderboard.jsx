@@ -100,7 +100,7 @@ export default function Leaderboard() {
                         ) : (
                             <>
                                 <h3>
-                                    Updated: {dates} &nbsp;
+                                    Updated: {dates}&nbsp;
                                     <TypeAnimation
                                         sequence={[
                                             updateDate.toString(),
