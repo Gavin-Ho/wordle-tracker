@@ -93,7 +93,7 @@ export default function Leaderboard() {
                 <div className="w-[90%] md:w-[70%] lg:w-[35%] flex flex-col justify-center text-center mb-10 lg:my-10 border-1 border-green-400 rounded-lg">
                     <div className="mb-4">
                         <h1 className="font-bold my-2 text-3xl xl:text-4xl">
-                            🏋️‍♂️ {dates} 2023
+                            🏋️‍♂️ {dates} 2024
                         </h1>
                         {isLoading ? (
                             <h3>Loading scores...</h3> // Render a loading indicator while the API call is in progress
